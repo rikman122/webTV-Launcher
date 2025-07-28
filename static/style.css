@@ -1,0 +1,118 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/static/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.7);
+  transform: scale(1.1);
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.carousel-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100vw;
+  padding: 7em 6vw; /* increased vertical padding for scale effect */
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.btn {
+  min-width: 13em;
+  max-width: 13em;
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:focus {
+  outline: none;
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.btn .icon {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.btn:hover .icon,
+.btn:focus .icon {
+  box-shadow: 0 0 24px 8px #2196f3;
+  transition: box-shadow 0.2s;
+}
+
+.time-widget {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 2;
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 0 2px 16px #000, 0 0 8px #2196f3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.app-name {
+  display: none;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  text-shadow: 2px 2px 8px #000;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn:focus .app-name {
+  display: block;
+}

@@ -1,0 +1,43 @@
+{
+  "YouTube": {
+    "type": "web",
+    "url": "https://www.youtube.com/tv#/?env_forceFullAnimation=true&env_isLimitedMemory=false&env_disableStartupDialog=true",
+    "icon": "youtube"
+  },
+  "Jellyfin": {
+    "type": "web",
+    "url": "https://jellyfin.org",
+    "icon": "jellyfin"
+  },
+  "Firefox": {
+    "type": "web",
+    "url": "https://duckduckgo.com",
+    "icon": "firefox"
+  },
+  "Prime Video": {
+    "type": "web",
+    "url": "https://www.primevideo.com",
+    "icon": "primevideo"
+  },
+  "Moonlight": {
+    "type": "native",
+    "command": "moonlight",
+    "icon": "moonlight"
+  },
+  "Immich": {
+    "type": "web",
+    "url": "https://immich.app/",
+    "icon": "immich"
+  },
+  "Frigate": {
+    "type": "web",
+    "url": "https://frigate.video",
+    "icon": "frigate"
+  },
+  "Desktop": {
+    "icon": "desktop"
+  },
+  "Shutdown": {
+    "icon": "shutdown"
+  }
+}

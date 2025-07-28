@@ -1,0 +1,34 @@
+alias: Mute TV on Wake Word
+description: "Mute the TV when the wake word is detected by the Living Room Satellite."
+triggers:
+  - trigger: state
+    entity_id:
+      - assist_satellite.living_room_satellite
+    from: idle
+    to: listening
+conditions: []
+actions:
+  - variables:
+      webtv_status: null
+  - action: rest_command.webtv_status
+    metadata: {}
+    data: {}
+    response_variable: webtv_status
+  - condition: template
+    value_template: "{{ webtv_status.content.status == 'Playing' }}"
+  - action: rest_command.webtv_media
+    metadata: {}
+    data:
+      command: playpause
+  - wait_for_trigger:
+      - trigger: state
+        entity_id:
+          - assist_satellite.living_room_satellite
+        to: idle
+    continue_on_timeout: false
+    enabled: true
+  - action: rest_command.webtv_media
+    metadata: {}
+    data:
+      command: playpause
+mode: single

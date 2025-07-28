@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TV Launcher</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="time-widget">
+      <span id="clock"></span>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      {% for app, meta in apps.items() %}
+          {% if meta.type == 'web' and meta.url %}
+            <a class="btn" href="{{ meta.url }}" tabindex="0">
+              <img class="icon" src="/static/icons/{{ meta.icon }}.png" alt="{{ app }}">
+              <div class="app-name" data-app-name="{{ app }}">{{ app }}</div>
+            </a>
+          {% else %}
+            <a class="btn" href="/launch/{{ app }}" tabindex="0">
+              <img class="icon" src="/static/icons/{{ meta.icon }}.png" alt="{{ app }}">
+              <div class="app-name" data-app-name="{{ app }}">{{ app }}</div>
+            </a>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <audio id="nav-sound" src="/static/sounds/nav.mp3" preload="auto"></audio>
+  <audio id="select-sound" src="/static/sounds/select.mp3" preload="auto"></audio>
+  <script src="/static/main.js"></script>
+</body>
+</html>

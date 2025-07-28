@@ -1,0 +1,10 @@
+webtv_media:
+  url: "http://[YOUR_HTPC_IP]:8000/media_control"
+  method: POST
+  headers:
+    Content-Type: application/json
+  payload: '{"command": "{{ command }}"}'
+
+webtv_status:
+  url: "http://[YOUR_HTPC_IP]:8000/media_status"
+  method: GET
